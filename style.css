@@ -1,0 +1,121 @@
+/* 1. RESET E TRAVA DE TELA */
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 2. PAINEL DE CONTROLE */
+.controls {
+    background: #2c3e50;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.controls h1 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.input-group {
+    display: none;
+}
+
+/* 3. CONTAINER DO CATÁLOGO */
+#catalogo {
+    width: 98%; /* Quase a tela toda */
+    max-width: 1000px;
+    margin: 10px auto;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.logo {
+    font-size: clamp(18px, 5vw, 28px);
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.sub-header {
+    font-size: 12px;
+    color: #7f8c8d;
+}
+
+/* 4. AJUSTE DE RESPONSIVIDADE (SEM SCROLL) */
+.tabela-responsiva {
+    width: 100%;
+    overflow-x: hidden; /* Remove o scroll lateral */
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Força a tabela a respeitar as larguras que definimos */
+}
+
+/* 5. CÉLULAS DA TABELA (AJUSTADAS PARA CABER) */
+th, td {
+    border: 1px solid #000; /* Linha mais fina para economizar espaço */
+    padding: 8px 4px;       /* Espaço interno reduzido */
+    font-size: 11px;        /* Fonte menor para o celular */
+    color: #000;
+    word-wrap: break-word;  /* Quebra a palavra se for muito grande */
+    overflow: hidden;
+}
+
+th {
+    background: #2c3e50;
+    color: white;
+}
+
+td {
+    font-weight: 600;
+    white-space: normal; /* PERMITE QUEBRA DE LINHA */
+}
+
+/* DEFININDO LARGURA DAS COLUNAS PARA NÃO ESPREMER */
+th:nth-child(1), td:nth-child(1) { width: 15%; } /* Cod */
+th:nth-child(2), td:nth-child(2) { width: 45%; } /* Descrição (maior) */
+th:nth-child(3), td:nth-child(3) { width: 20%; } /* Unid */
+th:nth-child(4), td:nth-child(4) { width: 20%; } /* Fardo */
+
+tr:nth-child(even) { 
+    background: #f2f2f2;
+}
+
+/* 6. AJUSTES ESPECÍFICOS PARA CELULAR (Telas muito pequenas) */
+@media (max-width: 480px) {
+    th, td {
+        font-size: 10px; /* Diminui um pouco mais a letra */
+        padding: 5px 2px;
+    }
+    
+    #catalogo {
+        width: 100%;
+        padding: 5px;
+        margin: 0;
+    }
+}
+
+@media print {
+    .no-print, .controls { display: none; }
+    #catalogo { width: 210mm; margin: 0; box-shadow: none; }
+    table { table-layout: auto; } /* Na impressão volta ao normal */
+}
