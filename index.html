@@ -1,669 +1,675 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo THG COMMERCE - Produtos Organizados</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Catálogo THG COMMERCE - Produtos Organizados</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    </head>
+    <body>
 
-    <!-- Controles não imprimíveis -->
-    <div class="no-print controls">
-        <h1>Painel THG COMMERCE</h1>
-        <button onclick="window.print()" class="btn-print">🖨️ Imprimir Catálogo</button>
-        <button onclick="gerarPDF()" class="btn-pdf">📥 Gerar PDF</button>
-    </div>
+        <!-- Controles não imprimíveis -->
+        <div class="no-print controls">
+            <h1>Painel THG COMMERCE</h1>
+            <button onclick="window.print()" class="btn-print">🖨️ Imprimir Catálogo</button>
+            <button onclick="gerarPDF()" class="btn-pdf">📥 Gerar PDF</button>
+        </div>
 
-    <!-- Catálogo Principal -->
-    <div id="catalogo">
-        <header>
-            <div class="logo">THG COMMERCE</div>
-            <div class="sub-header">TABELA DE PRODUTOS ORGANIZADOS - JANEIRO 2026</div>
-        </header>
-
-        <!-- ========== SEÇÃO CERVEJAS ========== -->
-        <section class="categoria" id="categoria-cervejas">
-            <h2 class="categoria-titulo">🍺 CERVEJAS</h2>
-            
-            <!-- Subcategoria: CERVEJA SKOL -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA SKOL</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-skol"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA BRAHMA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA BRAHMA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-brahma"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA ANTARCTICA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA ANTARCTICA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-antarctica"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA BUDWEISER -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA BUDWEISER</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-budweiser"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA STELLA ARTOIS -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA STELLA ARTOIS</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-stella"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA POLAR -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA POLAR</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-polar"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA BOHEMIA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA BOHEMIA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-bohemia"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA COLORADO -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA COLORADO</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-colorado"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: CERVEJA PATAGONIA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CERVEJA PATAGONIA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-patagonia"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: OUTRAS CERVEJAS -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">OUTRAS CERVEJAS</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-outras-cervejas"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: BARRIL CHOPP -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">BARRIL CHOPP</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-barril-chopp"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Subcategoria: MIKE'S HARD LEMONADE -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">MIKE'S HARD LEMONADE</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-mikes"></tbody>
-                    </table>
-                </div>
-            </div>
+        <!-- CAPA DO CATÁLOGO -->
+        <section class="capa-catalogo">
+            <img src="img/capa-thg.png" alt="Capa Catálogo THG Commerce">
         </section>
 
-        <!-- ========== SEÇÃO BEBIDAS NÃO ALCOÓLICAS ========== -->
-        <section class="categoria" id="categoria-nao-alcoolicas">
-            <h2 class="categoria-titulo">🥤 BEBIDAS NÃO ALCOÓLICAS</h2>
-            
-            <!-- Subcategoria: REFRIGERANTE GUARANÁ ANTARCTICA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE GUARANÁ ANTARCTICA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-guarana-antarctica"></tbody>
-                    </table>
+
+        <!-- Catálogo Principal -->
+        <div id="catalogo">
+            <header>
+                <div class="logo">THG COMMERCE</div>
+                <div class="sub-header">TABELA DE PRODUTOS ORGANIZADOS - JANEIRO 2026</div>
+            </header>
+
+            <!-- ========== SEÇÃO CERVEJAS ========== -->
+            <section class="categoria" id="categoria-cervejas">
+                <h2 class="categoria-titulo">🍺 CERVEJAS</h2>
+                
+                <!-- Subcategoria: CERVEJA SKOL -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA SKOL</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-skol"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: REFRIGERANTE PEPSI -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE PEPSI</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-pepsi"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA BRAHMA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA BRAHMA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-brahma"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: REFRIGERANTE FANTA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE FANTA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-fanta"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA ANTARCTICA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA ANTARCTICA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-antarctica"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: REFRIGERANTE COCA-COLA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE COCA-COLA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-coca-cola"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA BUDWEISER -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA BUDWEISER</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-budweiser"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: REFRIGERANTE SUKITA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE SUKITA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-sukita"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA STELLA ARTOIS -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA STELLA ARTOIS</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-stella"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: REFRIGERANTE H2OH! -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">REFRIGERANTE H2OH!</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-h2oh"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA POLAR -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA POLAR</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-polar"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: TÔNICA ANTARCTICA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">TÔNICA ANTARCTICA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-tonica"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA BOHEMIA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA BOHEMIA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-bohemia"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: KUAT -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">KUAT</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-kuat"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA COLORADO -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA COLORADO</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-colorado"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: SUCO -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">SUCO</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-suco"></tbody>
-                    </table>
+                <!-- Subcategoria: CERVEJA PATAGONIA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CERVEJA PATAGONIA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-patagonia"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: ÁGUA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">ÁGUA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-agua"></tbody>
-                    </table>
+                <!-- Subcategoria: OUTRAS CERVEJAS -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">OUTRAS CERVEJAS</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-outras-cervejas"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: CHÁ -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CHÁ</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-cha"></tbody>
-                    </table>
+                <!-- Subcategoria: BARRIL CHOPP -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">BARRIL CHOPP</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-barril-chopp"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: GATORADE -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">GATORADE</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-gatorade"></tbody>
-                    </table>
+                <!-- Subcategoria: MIKE'S HARD LEMONADE -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">MIKE'S HARD LEMONADE</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-mikes"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <!-- Subcategoria: POWERADE -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">POWERADE</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-powerade"></tbody>
-                    </table>
+            <!-- ========== SEÇÃO BEBIDAS NÃO ALCOÓLICAS ========== -->
+            <section class="categoria" id="categoria-nao-alcoolicas">
+                <h2 class="categoria-titulo">🥤 BEBIDAS NÃO ALCOÓLICAS</h2>
+                
+                <!-- Subcategoria: REFRIGERANTE GUARANÁ ANTARCTICA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE GUARANÁ ANTARCTICA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-guarana-antarctica"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: SCHWEPPES -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">SCHWEPPES</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-schweppes"></tbody>
-                    </table>
+                <!-- Subcategoria: REFRIGERANTE PEPSI -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE PEPSI</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-pepsi"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: JACK DANIEL'S COCA-COLA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">JACK DANIEL'S COCA-COLA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-jack-cola"></tbody>
-                    </table>
+                <!-- Subcategoria: REFRIGERANTE FANTA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE FANTA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-fanta"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ========== SEÇÃO BEBIDAS ALCOÓLICAS FORTES ========== -->
-        <section class="categoria" id="categoria-alcoolicas-fortes">
-            <h2 class="categoria-titulo">🥃 BEBIDAS ALCOÓLICAS FORTES</h2>
-            
-            <!-- Subcategoria: VODKA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">VODKA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-vodka"></tbody>
-                    </table>
+                <!-- Subcategoria: REFRIGERANTE COCA-COLA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE COCA-COLA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-coca-cola"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: CACHAÇA -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">CACHAÇA</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-cachaca"></tbody>
-                    </table>
+                <!-- Subcategoria: REFRIGERANTE SUKITA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE SUKITA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-sukita"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: GIN -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">GIN</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-gin"></tbody>
-                    </table>
+                <!-- Subcategoria: REFRIGERANTE H2OH! -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">REFRIGERANTE H2OH!</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-h2oh"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: LICORES E CONHAQUE -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">LICORES E CONHAQUE</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-licor"></tbody>
-                    </table>
+                <!-- Subcategoria: TÔNICA ANTARCTICA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">TÔNICA ANTARCTICA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-tonica"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Subcategoria: WHISKY -->
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">WHISKY</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-whisky"></tbody>
-                    </table>
+                <!-- Subcategoria: KUAT -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">KUAT</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-kuat"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ========== SEÇÃO ENERGÉTICOS ========== -->
-        <section class="categoria" id="categoria-energeticos">
-            <h2 class="categoria-titulo">⚡ ENERGÉTICOS</h2>
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">ENERGÉTICOS</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-energeticos"></tbody>
-                    </table>
+                <!-- Subcategoria: SUCO -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">SUCO</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-suco"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- ========== SEÇÃO OUTROS ========== -->
-        <section class="categoria" id="categoria-outros">
-            <h2 class="categoria-titulo">📦 OUTROS</h2>
-            <div class="subcategoria">
-                <h3 class="subcategoria-titulo">BALAS E GOMAS</h3>
-                <div class="tabela-responsiva">
-                    <table class="tabela-produtos">
-                        <thead>
-                            <tr>
-                                <th width="80">CÓDIGO</th>
-                                <th>DESCRIÇÃO DO PRODUTO</th>
-                                <th width="100">VALOR UNID.</th>
-                                <th width="100">VALOR FARDO</th>
-                            </tr>
-                        </thead>
-                        <tbody id="produtos-balas-gomas"></tbody>
-                    </table>
+                <!-- Subcategoria: ÁGUA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">ÁGUA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-agua"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
 
-    <!-- Rodapé -->
-    <footer class="no-print">
-        <p>Catálogo THG COMMERCE - Organizado por Categoria • Atualizado em Janeiro 2026</p>
-    </footer>
+                <!-- Subcategoria: CHÁ -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CHÁ</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-cha"></tbody>
+                        </table>
+                    </div>
+                </div>
 
-    <!-- Scripts -->
-    <script src="produtos.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+                <!-- Subcategoria: GATORADE -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">GATORADE</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-gatorade"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: POWERADE -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">POWERADE</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-powerade"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: SCHWEPPES -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">SCHWEPPES</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-schweppes"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: JACK DANIEL'S COCA-COLA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">JACK DANIEL'S COCA-COLA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-jack-cola"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SEÇÃO BEBIDAS ALCOÓLICAS FORTES ========== -->
+            <section class="categoria" id="categoria-alcoolicas-fortes">
+                <h2 class="categoria-titulo">🥃 BEBIDAS ALCOÓLICAS FORTES</h2>
+                
+                <!-- Subcategoria: VODKA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">VODKA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-vodka"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: CACHAÇA -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">CACHAÇA</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-cachaca"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: GIN -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">GIN</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-gin"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: LICORES E CONHAQUE -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">LICORES E CONHAQUE</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-licor"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Subcategoria: WHISKY -->
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">WHISKY</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-whisky"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SEÇÃO ENERGÉTICOS ========== -->
+            <section class="categoria" id="categoria-energeticos">
+                <h2 class="categoria-titulo">⚡ ENERGÉTICOS</h2>
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">ENERGÉTICOS</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-energeticos"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========== SEÇÃO OUTROS ========== -->
+            <section class="categoria" id="categoria-outros">
+                <h2 class="categoria-titulo">📦 OUTROS</h2>
+                <div class="subcategoria">
+                    <h3 class="subcategoria-titulo">BALAS E GOMAS</h3>
+                    <div class="tabela-responsiva">
+                        <table class="tabela-produtos">
+                            <thead>
+                                <tr>
+                                    <th width="80">CÓDIGO</th>
+                                    <th>DESCRIÇÃO DO PRODUTO</th>
+                                    <th width="100">VALOR UNID.</th>
+                                    <th width="100">VALOR FARDO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="produtos-balas-gomas"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Rodapé -->
+        <footer class="no-print">
+            <p>Catálogo THG COMMERCE - Organizado por Categoria • Atualizado em Janeiro 2026</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="produtos.js"></script>
+        <script src="script.js"></script>
+    </body>
+    </html>
